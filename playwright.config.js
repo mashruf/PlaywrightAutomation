@@ -15,8 +15,8 @@ const config = ({
 
   reporter: 'html',
   use: {
-    browserName: 'chromium'
-    
+    browserName: 'firefox',
+    headless: false
   },
 
 });
