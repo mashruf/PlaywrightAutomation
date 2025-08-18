@@ -1,6 +1,6 @@
 const {test, expect} = require('@playwright/test');
 
-test.only('Browser Context Playwright test',async ({browser})=>{
+test('Browser Context Playwright test',async ({browser})=>{
     const context = await browser.newContext();//open new instance
     const page = await context.newPage();//on that instance open a page
     const userName = page.locator('#username'); 
