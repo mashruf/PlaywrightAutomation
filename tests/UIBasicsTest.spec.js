@@ -5,6 +5,7 @@ test.only('Browser Context Playwright test',async ({browser})=>{
     const page = await context.newPage();//on that instance open a page
     const userName = page.locator('#username'); 
     const signIn = page.locator("#signInBtn");
+    const card = page.locator(".card-body a");
 
     //on that page go to the url
     await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
@@ -22,6 +23,9 @@ test.only('Browser Context Playwright test',async ({browser})=>{
     console.log(await page.locator(".card-body a").first().textContent());//first product
     console.log(await page.locator(".card-body a").nth(1).textContent());//second product
     console.log(await page.locator(".card-body a").last().textContent());//last product
+
+    const allCardTitle = await card.allTextContents();
+    console.log(allCardTitle);
 
 
 })
