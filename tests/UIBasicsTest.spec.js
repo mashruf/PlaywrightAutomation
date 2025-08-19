@@ -30,10 +30,16 @@ test('Browser Context Playwright test',async ({browser})=>{
 
 })
 
-test('Page Playwright test',async ({page})=>{
+test.only('UI controls',async ({page})=>{
+    await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+
+    //static select dropdown
+    const dropdown = await page.locator("select");//getting locator by tag name
+    await dropdown.selectOption("consult");//selecting the value
     
-    await page.goto("https://google.com");
-    console.log(await page.title()); //printing title in console
-    await expect(page).toHaveTitle("Google");//asserting the title
-    
+    //radio button
+    await page.locator(".radiotextsty").last().click();
+    await page.locator("#okayBtn").click();
+
+    await page.pause();//will pause the test
 })
